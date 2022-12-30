@@ -1,0 +1,41 @@
+.reviewBox{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 350px;
+    height: 80px;
+    position: relative;
+    text-align: left;
+}
+
+.rName{
+    font-size: small;
+    line-height: 0px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.review{
+    overflow: auto;
+    font-size: small;
+    height: 50px;
+    
+    width: 300px;
+}
+
+p{
+    font-size: small;
+    
+    margin-top: -5px;
+}
+
+.edit{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    right: 5px;
+    top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    width: 12px;
+}

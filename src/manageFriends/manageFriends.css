@@ -1,0 +1,77 @@
+.ManageFriends {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 20px;
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+}
+
+.back{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.friendLink {
+    float: right;
+    margin-right: 0px;
+    margin-top: -50px;
+    width: 30px;
+    cursor: pointer;
+    
+}
+
+.addFriend {
+    float: right;
+    margin-right: 50px;
+    margin-top: -50px;
+    width: 30px;
+    cursor: pointer;
+    
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+  }
+  
+  li {
+    float: left;
+    margin-left: 20px;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+  li a.active {
+    background-color: #111;
+  }

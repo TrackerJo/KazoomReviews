@@ -1,0 +1,47 @@
+.FriendLink {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+}
+
+.Login{
+    background-color: gray;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    line-height: normal;
+}
+
+.createAccount {
+    margin-left: 120px;
+}
+
+.accept{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.reject{
+    margin-left: 10px;
+    cursor: pointer;
+}

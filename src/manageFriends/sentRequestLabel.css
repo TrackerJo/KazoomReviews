@@ -1,0 +1,15 @@
+.SentRequestLabel {
+    border: black 1px solid;
+    border-radius: 5px;
+    width: 250px;
+    padding: 5px;
+}
+
+.remove{
+    float: right;
+    cursor: pointer;
+    width: 20px;
+    margin-right: 5px;
+    margin-top: 2px;
+    
+}

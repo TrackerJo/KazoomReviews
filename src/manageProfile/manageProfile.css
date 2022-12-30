@@ -1,0 +1,123 @@
+.ManageProfile {
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+}
+
+.back{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+p {
+    color: black
+}
+
+.Settings{
+    overflow: auto;
+    height: 360px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+}
+
+.collapsible {
+    
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .collapsible:focus{
+    outline: none;
+  }
+ 
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  
+  }
+
+  label {
+    float: left;
+    color: black;
+  }
+
+  input{
+    float: right;
+  }
+
+  p{
+    float: left;
+    color: black;
+    text-align: left;
+  }
+
+  #minSimilarities{
+    margin-top: 25px;
+  }
+
+  #changePassword{
+    float: right;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: small;
+    margin-top: -10px;
+  }
+
+  #changePasswordLabel{
+    float: left;
+    color: black;
+    margin-top: -10px;
+  }
+
+  .Login{
+    padding: 20px;
+    border-radius: 5px;
+    border: black 1px solid;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+
+select{
+  float: right;
+}

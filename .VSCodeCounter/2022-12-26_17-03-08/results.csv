@@ -1,0 +1,52 @@
+"filename", "language", "JavaScript React", "CSS", "JavaScript", "XML", "comment", "blank", "total"
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/App.css", "CSS", 0, 53, 0, 0, 0, 7, 60
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/App.jsx", "JavaScript React", 35, 0, 0, 0, 0, 9, 44
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/addRestaurant/addRestaurant.css", "CSS", 0, 21, 0, 0, 0, 7, 28
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/addRestaurant/addRestaurant.jsx", "JavaScript React", 140, 0, 0, 0, 1, 19, 160
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/assets/react.svg", "XML", 0, 0, 0, 1, 0, 0, 1
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/findRestaurants/findRestaurants.css", "CSS", 0, 37, 0, 0, 1, 9, 47
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/findRestaurants/findRestaurants.jsx", "JavaScript React", 68, 0, 0, 0, 1, 12, 81
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/findRestaurants/searchBar.jsx", "JavaScript React", 115, 0, 0, 0, 0, 14, 129
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/firebase.js", "JavaScript", 0, 0, 587, 0, 48, 116, 751
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/friendLink/friendLink.css", "CSS", 0, 40, 0, 0, 0, 7, 47
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/friendLink/friendLink.jsx", "JavaScript React", 74, 0, 0, 0, 3, 14, 91
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/index.css", "CSS", 0, 59, 0, 0, 0, 9, 68
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/login.css", "CSS", 0, 43, 0, 0, 0, 9, 52
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/loginSelection.jsx", "JavaScript React", 36, 0, 0, 0, 0, 11, 47
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/profileSetup.jsx", "JavaScript React", 0, 0, 0, 0, 0, 1, 1
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/signIn.css", "CSS", 0, 27, 0, 0, 0, 3, 30
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/signIn.jsx", "JavaScript React", 49, 0, 0, 0, 1, 9, 59
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/signUp.css", "CSS", 0, 27, 0, 0, 0, 2, 29
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/login/signUp.jsx", "JavaScript React", 62, 0, 0, 0, 1, 9, 72
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/main.jsx", "JavaScript React", 9, 0, 0, 0, 0, 2, 11
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendLabel.css", "CSS", 0, 6, 0, 0, 0, 0, 6
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendLabel.jsx", "JavaScript React", 16, 0, 0, 0, 0, 6, 22
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendRequestLabel.css", "CSS", 0, 20, 0, 0, 0, 4, 24
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendRequestLabel.jsx", "JavaScript React", 22, 0, 0, 0, 0, 9, 31
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendRequests.css", "CSS", 0, 9, 0, 0, 0, 0, 9
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friendRequests.jsx", "JavaScript React", 16, 0, 0, 0, 0, 5, 21
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friends.css", "CSS", 0, 9, 0, 0, 0, 0, 9
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/friends.jsx", "JavaScript React", 16, 0, 0, 0, 0, 8, 24
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/manageFriends.css", "CSS", 0, 64, 0, 0, 1, 13, 78
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/manageFriends.jsx", "JavaScript React", 85, 0, 0, 0, 3, 24, 112
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sendFriendRequest.css", "CSS", 0, 36, 0, 0, 0, 7, 43
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sendFriendRequest.jsx", "JavaScript React", 32, 0, 0, 0, 0, 14, 46
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sentFriendRequests.css", "CSS", 0, 9, 0, 0, 0, 0, 9
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sentFriendRequests.jsx", "JavaScript React", 16, 0, 0, 0, 0, 5, 21
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sentRequestLabel.css", "CSS", 0, 13, 0, 0, 0, 2, 15
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageFriends/sentRequestLabel.jsx", "JavaScript React", 16, 0, 0, 0, 0, 5, 21
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageProfile/manageProfile.css", "CSS", 0, 98, 0, 0, 0, 17, 115
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/manageProfile/manageProfile.jsx", "JavaScript React", 291, 0, 0, 0, 7, 41, 339
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/restaurantLabel.css", "CSS", 0, 10, 0, 0, 0, 2, 12
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/restaurantLabel.jsx", "JavaScript React", 17, 0, 0, 0, 0, 8, 25
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/Review.css", "CSS", 0, 33, 0, 0, 0, 6, 39
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/Review.jsx", "JavaScript React", 35, 0, 0, 0, 0, 12, 47
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/Reviews.css", "CSS", 0, 25, 0, 0, 0, 6, 31
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/Reviews.jsx", "JavaScript React", 45, 0, 0, 0, 0, 15, 60
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/addReview.css", "CSS", 0, 28, 0, 0, 0, 4, 32
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/addReview.jsx", "JavaScript React", 37, 0, 0, 0, 0, 11, 48
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/editReview.css", "CSS", 0, 29, 0, 0, 0, 4, 33
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/editReview.jsx", "JavaScript React", 36, 0, 0, 0, 0, 13, 49
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/viewRestaurant.css", "CSS", 0, 115, 0, 0, 2, 33, 150
+"/Users/nathanielkemmenash/Desktop/VS Code Projects/friends-and-family-reviews/src/viewRestaurant/viewRestaurant.jsx", "JavaScript React", 107, 0, 0, 0, 1, 24, 132
+"Total", "-", 1375, 811, 587, 1, 70, 567, 3411

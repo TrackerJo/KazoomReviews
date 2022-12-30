@@ -1,0 +1,158 @@
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+.Restaurant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+.Info{
+    
+   
+    
+    border-radius: 10px;
+    
+    width: 450px;
+    height: 450px;
+}
+
+h1 {
+    text-align: center;
+    
+    margin-top: 0px;
+}
+
+.Results{
+    /*Center div*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.name{
+    
+    font-size: 40px;
+    
+    font-weight: bold;
+
+    
+    
+}
+
+.price{
+    font-size: 20px;
+    
+    font-weight: bold;
+    float: right;
+    margin-right: 10px;
+}
+
+#favorite{
+    float: right;
+    width: 30px;
+    margin-top: -5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.back{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.photo{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: top;
+    
+    
+}
+
+.photoLoc{
+    /*horizontally Center table*/
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  
+
+}
+
+th {
+    font-size: 15px;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.locInfo{
+    display: inline-block;
+    margin-top: 50px;
+    padding-right: 10px;
+}
+
+.Reviews{
+    width: 450px;
+    height: 450px;
+    background-color: gray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.showAnimReviews{
+    display: block;
+    animation: 1s ease-out 0s 1 showReviews;
+}
+
+.hideAnimReviews{
+    animation: 1s ease-out 0s 1 hideReviews;
+}
+
+.hiddenReviews{
+    display: none;
+}
+
+.hideReviews{
+    display: none;
+}
+
+@keyframes showReviews {
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        width: 450px;
+        height: 450px;
+    }
+  }
+
+  @keyframes hideReviews {
+    0% {
+        width: 450px;
+        height: 450px;
+    }
+    100% {
+        width: 0px;
+        height: 0px;
+       
+    }
+  }
