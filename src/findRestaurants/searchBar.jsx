@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './findRestaurants.css'
-import { signIn } from '/src/firebase.js'
+import { signIn } from '../firebase.js'
 
 function SearchBar({searchType}) {
  

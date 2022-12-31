@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './signUp.css'
-import { createUser } from '/src/firebase.js'
+import { createUser } from '../firebase.js'
 
 function SignUp({onLogin}) {
  

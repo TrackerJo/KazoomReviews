@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { editReview } from '/src/firebase.js'
+import { editReview } from '../firebase.js'
 import './addReview.css'
 
 function EditReview({ isShown, setIsShown, restaurant, updateReviews, oldReview, reviewsSeen}) {
@@ -28,7 +28,7 @@ function EditReview({ isShown, setIsShown, restaurant, updateReviews, oldReview,
 
     return (
     <div className="Prompt" id={isShown}>
-       <img src="src/assets/x_circle_fill.png" alt="exit prompt" className='exit' onClick={handleExit}/> 
+       <img src="./assets/x_circle_fill.png" alt="exit prompt" className='exit' onClick={handleExit}/> 
        <h1>Edit Review</h1>
         <label>Rating</label>
         <br />

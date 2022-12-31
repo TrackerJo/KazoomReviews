@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
-import { getUserProfile, getAverageRatingGivenByUser, getFavoriteRestaurants,getUsersReviews } from '/src/firebase.js'
+import { getUserProfile, getAverageRatingGivenByUser, getFavoriteRestaurants,getUsersReviews } from '../firebase.js'
 import './viewUserProfile.css'
-import '/src/index.css'
-import RestaurantLabel from '/src/restaurantLabel'
+import '../index.css'
+import RestaurantLabel from '../restaurantLabel'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -53,14 +53,14 @@ function ViewUserProfile() {
 
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
   
 
   return (
     <div className="UserProfile">
         <div className='Info'>
-            <img src="src/assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>{user.Name}'s Profile</h1>
+            <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>{user.Name}'s Profile</h1>
             <label>{user.ReviewsWritten} Reviews Written</label>
             <br />
             <label>Average Rating: {averageRating}</label>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { sendFriendRequest } from '/src/firebase.js'
+import { sendFriendRequest } from '../firebase.js'
 import './sendFriendRequest.css'
 
 function SendFriendRequest({ isShown, setIsShown, updateSentRequests}) {
@@ -26,7 +26,7 @@ function SendFriendRequest({ isShown, setIsShown, updateSentRequests}) {
 
     return (
     <div className="Prompt" id={isShown}>
-       <img src="src/assets/x_circle_fill.png" alt="exit prompt" className='exit' onClick={handleExit}/> 
+       <img src="./assets/x_circle_fill.png" alt="exit prompt" className='exit' onClick={handleExit}/> 
        <h1>Send Friend Request</h1>
         
         <div className='PromptInfo'>

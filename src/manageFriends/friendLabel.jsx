@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './friendLabel.css'
-import { removeFriend } from '/src/firebase.js'
+import { removeFriend } from '../firebase.js'
 
 
 function FriendLabel({friend, updateFriends}) {
@@ -13,7 +13,7 @@ function FriendLabel({friend, updateFriends}) {
   return (
     <div className="FriendLabel">
             <label>{friend.Name}</label>
-            <img src="src/assets/x_circle_white.png" alt="remove friend" className='remove' onClick={handleRemoveFriend}/>  
+            <img src="./assets/x_circle_white.png" alt="remove friend" className='remove' onClick={handleRemoveFriend}/>  
 
     </div>
   )

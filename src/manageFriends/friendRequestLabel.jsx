@@ -21,8 +21,8 @@ function FriendRequestLabel({friend, updateFriendRequests, updateFriends}) {
   return (
     <div className="FriendRequestLabel">
          <label>{friend.Name}</label>
-         <img src="src/assets/x_circle_white.png" alt="reject request" className='reject' onClick={handleRejectRequest}/>
-         <img src="src/assets/checkmark_circle_white.png" alt="accept request" className='accept' onClick={handleAcceptRequest}/>
+         <img src="./assets/x_circle_white.png" alt="reject request" className='reject' onClick={handleRejectRequest}/>
+         <img src="./assets/checkmark_circle_white.png" alt="accept request" className='accept' onClick={handleAcceptRequest}/>
       
     </div>
   )

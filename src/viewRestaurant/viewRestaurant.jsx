@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
-import { getRestaurant, getReviews, getAverageRating, checkIfRestaurantIsFavorited, addRestaurantToFavorites, removeRestaurantFromFavorites } from '/src/firebase.js'
+import { getRestaurant, getReviews, getAverageRating, checkIfRestaurantIsFavorited, addRestaurantToFavorites, removeRestaurantFromFavorites } from '../firebase.js'
 import './viewRestaurant.css'
-import '/src/index.css'
+import '../index.css'
 import Review from './Review'
 import Reviews from './Reviews'
 
@@ -24,7 +24,7 @@ function ViewRestaurant() {
   const [visibility, setVisibility] = useState('hidden')
   const [reviewsSeen, setReviewsSeen] = useState('everyone')
   const [isFavorited, setIsFavorited] = useState(false)
-  const [favoritedImg, setFavoritedImg] = useState('src/assets/white_star_empty.png')
+  const [favoritedImg, setFavoritedImg] = useState('/assets/white_star_empty.png')
    //get restaurant name from url parameter
    const urlParams = new URLSearchParams(window.location.search)
    const restaurantName = urlParams.get('restaurant')
@@ -43,7 +43,7 @@ function ViewRestaurant() {
       checkIfRestaurantIsFavorited(restaurantName).then((favorite) => {
         if(favorite){
           setIsFavorited(true)
-          setFavoritedImg('src/assets/white_star_fill.png')
+          setFavoritedImg('/assets/white_star_fill.png')
         }
       })
     })
@@ -98,17 +98,17 @@ function ViewRestaurant() {
   }
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
   
   async function handleFavoriteRestaurant(e){
     if(isFavorited){
       setIsFavorited(false)
-      setFavoritedImg('src/assets/white_star_empty.png')
+      setFavoritedImg('/assets/white_star_empty.png')
       await removeRestaurantFromFavorites(restaurantName)
     }else{
       setIsFavorited(true)
-      setFavoritedImg('src/assets/white_star_fill.png')
+      setFavoritedImg('/assets/white_star_fill.png')
       await addRestaurantToFavorites(restaurantName)
     }
   }
@@ -117,7 +117,7 @@ function ViewRestaurant() {
     <div className="Restaurant">
       <div className='Info'>
         <br />
-        <img src="src/assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><label className='name'>{restaurant.Name}</label><img src={favoritedImg} alt="favorite restaurant" id="favorite" onClick={handleFavoriteRestaurant}/> <label className='price'>{"$".repeat(restaurant.Price)}</label>
+        <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><label className='name'>{restaurant.Name}</label><img src={favoritedImg} alt="favorite restaurant" id="favorite" onClick={handleFavoriteRestaurant}/> <label className='price'>{"$".repeat(restaurant.Price)}</label>
     
         <table className='photoLoc'>
           <tr>

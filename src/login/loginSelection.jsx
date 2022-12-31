@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import { createDoc } from '/src/firebase.js'
 import './login.css'
-import '/src/index.css'
+import '../index.css'
 import SignUp from './signUp'
 import SignIn from './signIn'
 
@@ -21,7 +20,7 @@ function LoginSelection() {
   const [loginSelection, setSelection] = useState('None')
 
   function onLogin(){
-    window.location.href = "index.html"
+    window.location.href = "/friends-and-family-reviews/"
   }
 
   return (

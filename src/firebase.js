@@ -31,7 +31,7 @@ onAuthStateChanged(auth, user => {
         console.log('user logged in: ', user);
         //Check if on login page
         if(window.location.href.includes("login.html") && !loggingIn){
-            window.location.href = "index.html"
+            window.location.href = ""
         }
         loggedIn = 1;
        
@@ -41,8 +41,8 @@ onAuthStateChanged(auth, user => {
     } else {
         console.log('user logged out');
         //Redirect to login page
-        if(!window.location.href.includes("login.html") && !window.location.href.includes("friendLink.html")){
-            window.location.href = "login.html"
+        if(!window.location.href.includes("login") && !window.location.href.includes("friendLink")){
+            window.location.href = "/friends-and-family-reviews/login/"
         }
         loggedIn = 0;
     }
@@ -503,7 +503,11 @@ export async function addReview(id,rating, review){
 
 
 export async function generateFriendRequestLink(){
-    let link = "http://127.0.0.1:5173/friendLink.html?uid=" + getAuth().currentUser.uid;
+    //Get first part of url
+
+   let baseUrl = window.location.href
+   baseUrl = baseUrl.split('/friends-and-family-reviews/')[0]
+    let link = baseUrl + "/friends-and-family-reviews/friendLink/?uid=" + getAuth().currentUser.uid;
     return link;
 }
 

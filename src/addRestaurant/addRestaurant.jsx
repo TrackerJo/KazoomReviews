@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import { addRestaurant } from '/src/firebase.js'
+import { addRestaurant } from '../firebase.js'
 import './addRestaurant.css'
-import '/src/index.css'
+import '../index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -31,18 +31,18 @@ function AddRestaurant() {
     await addRestaurant(name, description,address, city, state, website, category, price, photo)
 
     //Redirect to home page
-    window.location.href = '/'
+    window.location.href = '/friends-and-family-reviews/'
   
   }
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
 
 
   return (
     <div className="AddRestaurant">
-      <img src="src/assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
+      <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
       <h1>Add Restaurant</h1>
       
       <div className='Fields'>

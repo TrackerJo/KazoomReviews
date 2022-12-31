@@ -7,28 +7,28 @@ function App() {
   const [count, setCount] = useState(0)
 
   function handleRedirectToAddRestaurant(e){
-    window.location.href = '/addRestaurant.html'
+    window.location.href = '/friends-and-family-reviews/addRestaurant/'
   }
 
   function handleRedirectToFindRestaurants(e){
-    window.location.href = '/findRestaurants.html'
+    window.location.href = '/friends-and-family-reviews/findRestaurants/'
   }
 
   function handleRedirectToManageFriends(e){
-    window.location.href = '/manageFriends.html'
+    window.location.href = '/friends-and-family-reviews/manageFriends/'
   }
 
   function handleRedirectToManageProfile(e){
-    window.location.href = '/manageProfile.html'
+    window.location.href = '/friends-and-family-reviews/manageProfile/'
   }
 
   function handleRedirectToFavoritedRestaurants(e){
-    window.location.href = '/viewFavoritedRestaurants.html'
+    window.location.href = '/friends-and-family-reviews/viewFavoritedRestaurants/'
   }
 
   async function handleRedirectToUserProfile(e){
     const id = await getAuthID()
-    window.location.href = '/viewUserProfile.html?user=' + id
+    window.location.href = '/friends-and-family-reviews/viewUserProfile/?user=' + id
   } 
 
   function handleSignOut(e){

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
-import { getUserProfile, checkLoginStatus, addFriend } from '/src/firebase.js'
+import { getUserProfile, checkLoginStatus, addFriend } from '../firebase.js'
 import './friendLink.css'
 import '../index.css'
 import SignIn from '../login/signIn'
@@ -62,8 +62,9 @@ function FriendLink() {
       <h1>Friend Request from {profile.Name}</h1>
       <label>Would you like to accept this friend request?</label>
         <br />
-        <img src="src/assets/checkmark_circle_white.png" alt="accept" className='accept' onClick={handleAccept}/>
-        <img src="src/assets/x_circle_white.png" alt="reject" className='reject' onClick={handleReject}/>
+        <br />
+        <img src="./assets/checkmark_circle_white.png" alt="accept" className='accept' onClick={handleAccept}/>
+        <img src="./assets/x_circle_white.png" alt="reject" className='reject' onClick={handleReject}/>
     </div>
     :
     loggedIn == 0 ?

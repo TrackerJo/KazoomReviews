@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
 import { generateFriendRequestLink, getFriends, getFriendRequests, getSentFriendRequests } from '../firebase'
 import './manageFriends.css'
-import '/src/index.css'
+import '../index.css'
 import Friends from './friends'
 import FriendRequests from './friendRequests'
 import SentFriendRequests from './sentFriendRequests'
@@ -44,7 +44,7 @@ function ManageFriends() {
   }, [])
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
 
   function handleTabClick(e){
@@ -84,10 +84,10 @@ function ManageFriends() {
   return (
     <>
       <div className="ManageFriends">
-        <img src="src/assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
+        <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
         <h1>Manage Friends</h1>
-        <img src="src/assets/add_person_fill_white.png" alt="add friend" className='addFriend' onClick={ () => setSendRequestVisible('visible')}/>
-        <img src="src/assets/white_link.png" alt="generate friend link" className='friendLink' onClick={handleCreateFriendLink}/>
+        <img src="./assets/add_person_fill_white.png" alt="add friend" className='addFriend' onClick={ () => setSendRequestVisible('visible')}/>
+        <img src="./assets/white_link.png" alt="generate friend link" className='friendLink' onClick={handleCreateFriendLink}/>
         <ul>
             <li><a className="active" onClick={handleTabClick}>Friends</a></li>
             <li><a onClick={handleTabClick}>Friend Requests</a></li>

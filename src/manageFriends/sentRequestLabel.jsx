@@ -13,7 +13,7 @@ function SentRequestLabel({request, updateSentRequests}) {
   return (
     <div className="SentRequestLabel">
       <label>{request.Name}</label>
-      <img src="src/assets/x_circle_white.png" alt="remove request" className='remove' onClick={handleRemoveRequest}/>
+      <img src="./assets/x_circle_white.png" alt="remove request" className='remove' onClick={handleRemoveRequest}/>
     </div>
   )
 }

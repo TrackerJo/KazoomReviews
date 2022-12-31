@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAuthID } from '/src/firebase.js'
+import { getAuthID } from '../firebase.js'
 import './Reviews.css'
 import Review from './Review'
 import AddReview from './addReview'
@@ -24,7 +24,7 @@ function Reviews({reviews, restaurant, updateReviews, reviewsSeen, setReviewsSee
         <>
             
             <br />
-            <label className='title'>Reviews</label> <img className="add" src="src/assets/plus_fill_white.png" alt="add review" onClick={handleAddReview}/>
+            <label className='title'>Reviews</label> <img className="add" src="./assets/plus_fill_white.png" alt="add review" onClick={handleAddReview}/>
             <br />
             <label htmlFor="reviewsSeen">Reviews Shown: </label> 
             <select name="reviewsSeen" id="reviewsSeen" onChange={handleReviewsSeen}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { getAuthID } from '/src/firebase.js'
+import { getAuthID } from '../firebase.js'
 import './Review.css'
 import EditReview from './editReview'
 
@@ -25,7 +25,7 @@ function Review({review, updateReviews, restaurant, reviewsSeen}) {
         <>
             <div className="reviewBox" >
                 {isOwner ?
-                <img src="src/assets/pencil.png" alt="edit review" className='edit' onClick={() => setIsEditShown('visible')}/>
+                <img src="./assets/pencil.png" alt="edit review" className='edit' onClick={() => setIsEditShown('visible')}/>
                 
                 : null}
                 <label className='rName'>{review.Name}</label>

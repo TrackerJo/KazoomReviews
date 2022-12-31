@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
 import { getCurrentUserProfile, updateProfileInfo, reauthenticateUser, changePassword, updateUserPreferences, updateFriendSettings } from '../firebase'
 import './manageProfile.css'
-import '/src/index.css'
+import '../index.css'
 import SignIn from '../login/signIn'
 
 
@@ -55,7 +55,7 @@ function ManageProfile() {
   }, [])
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
 
  
@@ -185,7 +185,7 @@ function ManageProfile() {
       return (
         <>
           <div className="ManageProfile">
-            <img src="src/assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
+            <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
             <h1>Manage Profile</h1>
             <div className='Settings' onChange={changeValue}>
                 <button className="collapsible" onClick={openCollapsible}>Profile Settings</button>

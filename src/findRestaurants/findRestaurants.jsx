@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import { findRestaurantsByName, findRestaurantsByState, findRestaurantsByCity, findRestaurantsByPrice, findRestaurantsByCategory } from '/src/firebase.js'
+import { findRestaurantsByName, findRestaurantsByState, findRestaurantsByCity, findRestaurantsByPrice, findRestaurantsByCategory } from '../firebase.js'
 import './findRestaurants.css'
-import '/src/index.css'
+import '../index.css'
 import SearchBar from './searchBar'
-import RestaurantLabel from '/src/restaurantLabel'
+import RestaurantLabel from '../restaurantLabel'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -57,7 +57,7 @@ function FindRestaurants() {
   }
 
   function handleBackArrow(e){
-    window.location.href = '/index.html'
+    window.location.href = '/friends-and-family-reviews/'
   }
 
   return (

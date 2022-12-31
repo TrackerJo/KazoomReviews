@@ -1,8 +1,10 @@
 :root {
-  --title: #30a9bf;
-  --text: #add4dc;
-  --background1: #427a84;
-  --background2: #488591;
+  --title: #0041c4;
+  
+  --text: #bfdeff;
+  --background1: #aec0ff;
+  --background2: #a0cdff;
+  --background3: #4e83f0;
 }
 
 #root {
