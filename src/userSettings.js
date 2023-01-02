@@ -1,5 +1,6 @@
 export const restaurantPreferences = {
-    "Cafe" :["Coffee"]
+    "Cafe" :["Coffee"],
+    "All" :["Coffee", "Meat", "Pizza"]
 }
 
 export const baseRestaurantPreferences = {

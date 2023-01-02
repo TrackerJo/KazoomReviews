@@ -2,33 +2,34 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { signOutUser, getAuthID } from './firebase.js'
+import { getBase } from "./webSettings.js";
 
 function App() {
   const [count, setCount] = useState(0)
 
   function handleRedirectToAddRestaurant(e){
-    window.location.href = '/friends-and-family-reviews/addRestaurant/'
+    window.location.href = getBase() + 'addRestaurant/'
   }
 
   function handleRedirectToFindRestaurants(e){
-    window.location.href = '/friends-and-family-reviews/findRestaurants/'
+    window.location.href = getBase() + 'findRestaurants/'
   }
 
   function handleRedirectToManageFriends(e){
-    window.location.href = '/friends-and-family-reviews/manageFriends/'
+    window.location.href = getBase() + 'manageFriends/'
   }
 
   function handleRedirectToManageProfile(e){
-    window.location.href = '/friends-and-family-reviews/manageProfile/'
+    window.location.href = getBase() + 'manageProfile/'
   }
 
   function handleRedirectToFavoritedRestaurants(e){
-    window.location.href = '/friends-and-family-reviews/viewFavoritedRestaurants/'
+    window.location.href = getBase() + 'viewFavoritedRestaurants/'
   }
 
   async function handleRedirectToUserProfile(e){
     const id = await getAuthID()
-    window.location.href = '/friends-and-family-reviews/viewUserProfile/?user=' + id
+    window.location.href = getBase() + 'viewUserProfile/?user=' + id
   } 
 
   function handleSignOut(e){
@@ -48,7 +49,7 @@ function App() {
         
       </div>
       <br />
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button onClick={handleSignOut} id="SignOut">Sign Out</button>
     </div>
   )
 }

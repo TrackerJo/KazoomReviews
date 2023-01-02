@@ -5,6 +5,8 @@ import { getUserProfile, getAverageRatingGivenByUser, getFavoriteRestaurants,get
 import './viewUserProfile.css'
 import '../index.css'
 import RestaurantLabel from '../restaurantLabel'
+import back from '../assets/white_back_arrow.png'
+import { getBase } from '../webSettings.js'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -53,14 +55,14 @@ function ViewUserProfile() {
 
 
   function handleBackArrow(e){
-    window.location.href = '/friends-and-family-reviews/'
+    window.location.href = getBase()
   }
   
 
   return (
     <div className="UserProfile">
         <div className='Info'>
-            <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>{user.Name}'s Profile</h1>
+            <img src={back} alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>{user.Name}'s Profile</h1>
             <label>{user.ReviewsWritten} Reviews Written</label>
             <br />
             <label>Average Rating: {averageRating}</label>

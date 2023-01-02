@@ -1,8 +1,8 @@
 .ManageFriends {
     padding: 20px;
     border-radius: 20px;
-    width: 700px;
-    height: 600px;
+    width: 50%;
+    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -73,4 +73,28 @@ ul {
 
   li a.active {
     background-color: #111;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+      font-size: 20px;
+      margin-right: 50px;
+      margin-bottom: 0px;
+    }
+    .ManageFriends {
+      width: 80%;
+
+    }
+    .addFriend {
+       width: 20px;
+       margin-right: 25px;
+    }
+    .friendLink {
+       width: 20px;
+    }
+   
+
+    
+    
   }

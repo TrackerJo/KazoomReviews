@@ -5,6 +5,7 @@ import {
     getAuth,reauthenticateWithCredential,EmailAuthProvider,updatePassword, signOut, createUserWithEmailAndPassword, setPersistence, onAuthStateChanged ,signInWithEmailAndPassword, browserSessionPersistence, updateProfile
 } from "firebase/auth";
 import { restaurantPreferences, baseRestaurantPreferences, baseFriendSettings, baseProfileSettings } from "./userSettings";
+import { getBase } from "./webSettings.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -42,7 +43,7 @@ onAuthStateChanged(auth, user => {
         console.log('user logged out');
         //Redirect to login page
         if(!window.location.href.includes("login") && !window.location.href.includes("friendLink")){
-            window.location.href = "/friends-and-family-reviews/login/"
+            window.location.href = getBase() + "login/"
         }
         loggedIn = 0;
     }
@@ -56,10 +57,10 @@ export async function AddDoc_CustomID(collectionName,obj, name){
         
     )
     .then(() => {
-        alert("data added successfully")
+        console.log("data added successfully")
     })
     .catch((error) => {
-        alert("unsuccessful operation, error: " + error);
+        console.log("unsuccessful operation, error: " + error);
     })
 }
   export async function createDoc(){
@@ -78,7 +79,7 @@ export async function AddDoc_CustomID(collectionName,obj, name){
   export async function createUser(full_name, email, password, onLogin){
     const auth = getAuth();
     loggingIn = true;
-    alert("Emal: " + email + " Password: " + password)
+    console.log("Emal: " + email + " Password: " + password)
     await createUserWithEmailAndPassword(auth,email, password)
     .then(async (userCredential) => {
         // Signed in 
@@ -88,7 +89,7 @@ export async function AddDoc_CustomID(collectionName,obj, name){
           }).then(() => {
             // Profile updated!
             AddDoc_CustomID("users", {Name: full_name, Email: email,  Preferences: baseRestaurantPreferences, FriendSettings: baseFriendSettings, ProfileSettings: baseProfileSettings},user.uid).then(() => {
-                alert("Account Created Successfully" + auth.currentUser.displayName)
+                console.log("Account Created Successfully" + auth.currentUser.displayName)
                 onLogin();
                 loggingIn = false;
             })
@@ -120,7 +121,7 @@ export async function signIn(email, password, onLogin){
     .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        alert("Signed in successfully")
+        console.log("Signed in successfully")
         setPersistence(auth, browserSessionPersistence)
         .then(() => {
         // Existing and future Auth states are now persisted in the current
@@ -151,7 +152,7 @@ export async function signOutUser(){
     const auth = getAuth();
     await signOut(auth).then(() => {
         // Sign-out successful.
-        alert("Signed out successfully")
+        console.log("Signed out successfully")
         
       }).catch((error) => {
         // An error happened.
@@ -162,6 +163,12 @@ export async function signOutUser(){
 
 export async function addRestaurant(name, description,address, city, state, website, category, price, photo){
     const auth = getAuth();
+    //Make sure that restaurant doesn't already exist
+    let restaurants = await findRestaurantsByName(name);
+    if(restaurants.length > 0){
+        alert("Restaurant already exists")
+        return;
+    }
     await addDoc(collection(db, "restaurants"), {
         Name: name,
         Description: description,
@@ -174,14 +181,21 @@ export async function addRestaurant(name, description,address, city, state, webs
         Photo: photo,
         Owner: auth.currentUser.uid
     })
-    .then(() => {
-        alert("Restaurant added successfully")
-    })
     .catch((error) => {
         alert("Error when adding restaurant. Look in console for more info.")
         console.log("Recieved error: " + error.message + " with error code " + error.code + " when adding restaraunt.")
     }
     )
+    
+    console.log("Restaurant added successfully")
+    //Get restaurant id
+    let restaurant = await findRestaurantsByName(name)
+    //get restaurant id
+    let id = restaurant[0].id;
+    return id;
+    
+    
+    
 }
 
 export async function findRestaurantsByName(name){    
@@ -337,6 +351,7 @@ export async function getReviews(id, reviewsSeen, restaurantType){
             restaurantType = restaurantPreferences[restaurantType];
         
         const similarUsers = await getPeopleWithSimilarPreferences(restaurantType, user.FriendSettings.minSimilarities);
+        similarUsers = similarUsers[0];
         //loop through all the reviews
         for (let index = 0; index < querySnapshot.docs.length; index++) {
             const rDoc = querySnapshot.docs[index];
@@ -432,6 +447,7 @@ export async function getAverageRating(id, reviewsSeen, restaurantType){
         //Get people who have similar preferences
         restaurantType = restaurantPreferences[restaurantType];
         const similarUsers = await getPeopleWithSimilarPreferences(restaurantType, user.FriendSettings.minSimilarities);
+        similarUsers = similarUsers[0];
         //loop through all the reviews
         for (let index = 0; index < querySnapshot.docs.length; index++) {
             const rDoc = querySnapshot.docs[index];
@@ -473,7 +489,7 @@ export async function addReview(id,rating, review){
         Owner: auth.currentUser.uid
     })
     .then(async () => {
-        alert("Review added successfully")
+        console.log("Review added successfully")
         //Increase the number of reviews the user has written
         const userDoc = doc(db, "users", auth.currentUser.uid)
         const userDocSnap = await getDoc(userDoc);
@@ -506,8 +522,8 @@ export async function generateFriendRequestLink(){
     //Get first part of url
 
    let baseUrl = window.location.href
-   baseUrl = baseUrl.split('/friends-and-family-reviews/')[0]
-    let link = baseUrl + "/friends-and-family-reviews/friendLink/?uid=" + getAuth().currentUser.uid;
+   baseUrl = baseUrl.split(getBase())[0]
+    let link = baseUrl + getBase() + "friendLink/?uid=" + getAuth().currentUser.uid;
     return link;
 }
 
@@ -569,7 +585,7 @@ export async function addFriend(uid){
         uid: auth.currentUser.uid
     })
 
-    alert("Friend added successfully")
+    console.log("Friend added successfully")
 }
 
 export async function getFriends(){
@@ -696,7 +712,7 @@ export async function sendFriendRequest(name){
         Name: auth.currentUser.displayName,
         uid: auth.currentUser.uid
     })
-    alert("Friend request sent successfully")
+    console.log("Friend request sent successfully")
 }
 
 export async function removeSentFriendRequest(uid){
@@ -709,7 +725,7 @@ export async function removeSentFriendRequest(uid){
     //Remove friend request from friend's friend request list
     const friendRequestDoc2 = doc(friendDoc, "friendRequests", auth.currentUser.uid)
     await deleteDoc(friendRequestDoc2)
-    alert("Friend request removed successfully")
+    console.log("Friend request removed successfully")
 }
 
 export async function rejectFriendRequest(uid){
@@ -722,7 +738,7 @@ export async function rejectFriendRequest(uid){
     //Remove friend request from friend's friend request list
     const friendRequestDoc2 = doc(friendDoc, "sentFriendRequests", auth.currentUser.uid)
     await deleteDoc(friendRequestDoc2)
-    alert("Friend request rejected successfully")
+    console.log("Friend request rejected successfully")
 }
 
 export async function acceptFriendRequest(uid){
@@ -748,7 +764,7 @@ export async function acceptFriendRequest(uid){
         Name: auth.currentUser.displayName,
         uid: auth.currentUser.uid
     })
-    alert("Friend request accepted successfully")
+    console.log("Friend request accepted successfully")
 }
 
 export async function removeFriend(uid){
@@ -761,7 +777,7 @@ export async function removeFriend(uid){
     //Remove friend from friend's friend list
     const friendFriendsDoc = doc(friendDoc, "friends", auth.currentUser.uid)
     await deleteDoc(friendFriendsDoc)
-    alert("Friend removed successfully")
+    console.log("Friend removed successfully")
 }
 
 export async function getAuthID(){
@@ -787,13 +803,13 @@ export async function editReview(restaraunt, reviewID, review){
         Description: review.Description,
         Rating: parseInt(review.Rating)
     })
-    alert("Review edited successfully")
+    console.log("Review edited successfully")
 }
 
 export async function changeEmail(email){
     const auth = getAuth();
     await updateEmail(auth.currentUser, email)
-    alert("Email changed successfully")
+    console.log("Email changed successfully")
 }
 
 export async function updateProfileInfo(profile){
@@ -807,7 +823,7 @@ export async function updateProfileInfo(profile){
         Name: profile.Name,
         ProfileSettings: profile.ProfileSettings
     })
-    alert("Profile updated successfully")
+    console.log("Profile updated successfully")
 
 }
 
@@ -825,7 +841,7 @@ export async function reauthenticateUser(email, password){
 export async function changePassword(password){
     const auth = getAuth();
     await updatePassword(auth.currentUser, password)
-    alert("Password changed successfully")
+    console.log("Password changed successfully")
 }
 
 export async function updateUserPreferences(preferences){
@@ -834,7 +850,7 @@ export async function updateUserPreferences(preferences){
     await updateDoc(userDoc, {
         Preferences: preferences
     })
-    alert("Preferences updated successfully")
+    console.log("Preferences updated successfully")
 }
 
 export async function getPeopleWithSimilarPreferences(preferenceTypes, minSimilarity){
@@ -880,11 +896,24 @@ export async function getPeopleWithSimilarPreferences(preferenceTypes, minSimila
         console.log(name, getOccurrence(similarUsers, name))
         
     });
+  
     //Filter out names that appear less than minSimilarity times
     let filteredUsers = similarUsers.filter((name, index) => {
         return getOccurrence(similarUsers, name) >= minSimilarity;
     }
     )
+
+    let userCount = [];
+
+    for (let index = 0; index < filteredUsers.length; index++) {
+        if(userCount.find(user => user.user == filteredUsers[index])){
+            continue;
+        }
+        const user = filteredUsers[index];
+        const occurrence = getOccurrence(filteredUsers, user);
+        userCount.push({uid: user, similarity: occurrence})
+        
+    }
 
     //Remove duplicates
     filteredUsers = [...new Set(filteredUsers)]
@@ -892,7 +921,7 @@ export async function getPeopleWithSimilarPreferences(preferenceTypes, minSimila
 
    
     console.log(filteredUsers)
-    return filteredUsers;
+    return [filteredUsers, userCount];
 
 }
 
@@ -906,7 +935,7 @@ export async function updateFriendSettings(friendSettings){
     await updateDoc(userDoc, {
         FriendSettings: friendSettings
     })
-    alert("Friend settings updated successfully")
+    console.log("Friend settings updated successfully")
 }
 
 export async function checkIfRestaurantIsFavorited(restaurant){
@@ -927,7 +956,7 @@ export async function addRestaurantToFavorites(restaurant){
     await setDoc(restaurantDoc, {
         id: restaurant
     })
-    alert("Restaurant added to favorites successfully")
+    console.log("Restaurant added to favorites successfully")
 }
 
 export async function removeRestaurantFromFavorites(restaurant){
@@ -935,7 +964,7 @@ export async function removeRestaurantFromFavorites(restaurant){
     const userDoc = doc(db, "users", auth.currentUser.uid)
     const restaurantDoc = doc(userDoc, "favorites", restaurant)
     await deleteDoc(restaurantDoc)
-    alert("Restaurant removed from favorites successfully")
+    console.log("Restaurant removed from favorites successfully")
 }
 
 export async function getRestaurantByID(id){
@@ -987,4 +1016,66 @@ export async function getUsersReviews(uid){
         reviews[index].Price = restaurant.Price;
     }
     return reviews;
+}
+
+export async function generateSuggestedFriends(){
+    //Get current user friend settings
+    const auth = getAuth();
+    const userDoc = doc(db, "users", auth.currentUser.uid)
+    const docSnap = await getDoc(userDoc)
+    const friendSettings = docSnap.data().FriendSettings;
+    //Get users friends
+    const friendsSnapshot = await getDocs(collection(userDoc, "friends"))
+    let friends = friendsSnapshot.docs.map(doc => doc.data());
+    //Get people with similar preferences
+    let similarUsers = await getPeopleWithSimilarPreferences(restaurantPreferences.All,friendSettings.minSimilarities);
+    similarUsers = similarUsers[1];
+    let suggestedFriends = [];
+    let numOfPreferences = Object.keys(baseRestaurantPreferences).length;
+    //Loop through similar users and get info
+    for (let index = 0; index < similarUsers.length; index++) {
+        const user = similarUsers[index];
+        let userInfo = await getUserProfile(user.uid);
+        //Make sure user is not already friends with user
+        if(friends.find(friend => friend.uid == user.uid)){
+            continue;
+        }
+
+        let similarity = user.similarity / numOfPreferences;
+        suggestedFriends.push({uid: user.uid, Name: userInfo.Name, Similarity: similarity})
+
+        
+    }
+    
+    return suggestedFriends;
+}
+
+export async function getYelpRestaurants(name, location){
+
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          "Access-Control-Allow-Origin": "*",
+          Authorization: 'Bearer 9cUsOEPzO81z2LY_3AVAKPNXJUMJOlpSCUyFlNwJasEJBe629diIEFGmq94q_Ot049KhxWOTCiDFZk87TR27Lr55UUgGCS9rHMY67O1yXQKRzvdgr6Ri0XOKdO-wY3Yx'
+        },
+        
+      };
+      let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${name}&sort_by=best_match&limit=20`;
+    if(location != null){
+        url += `&location=${location}`;
+    }
+      
+    let result = await fetch(url, options)
+    let resultJSON = await result.json()
+    //console.log(resultJSON.businesses)
+    let resultOBJ = JSON.parse(JSON.stringify(resultJSON))
+    return resultOBJ.businesses;
+
+}
+
+export async function editRestaurant(restaurant, id){
+    const restaurantDoc = doc(db, "restaurants", id)
+    await updateDoc(restaurantDoc, restaurant)
+    console.log("Restaurant updated successfully")
 }

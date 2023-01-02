@@ -5,15 +5,20 @@ import react from '@vitejs/plugin-react'
 const root = resolve(__dirname, 'src')
 const outDir = resolve(__dirname, 'dist')
 
+export const base = '/KazoomReviews/'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  base: '/friends-and-family-reviews/',
+  base: '/KazoomReviews/',
   plugins: [react()],
   build: {
     outDir,
     emptyOutDir: true,
     rollupOptions: {
+      assetFileNames: ({name}) => {
+        return 'assets/[name]-[hash][extname]';
+      },
       input: {
         index: resolve(root,  'index.html'),
         addRestaurant: resolve(root,  'addRestaurant' ,'index.html'),

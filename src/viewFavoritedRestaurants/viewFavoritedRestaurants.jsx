@@ -5,6 +5,8 @@ import { getFavoriteRestaurants } from '../firebase.js'
 import './viewFavoritedRestaurants.css'
 import '../index.css'
 import RestaurantLabel from '../restaurantLabel'
+import back from '../assets/white_back_arrow.png'
+import { getBase } from '../webSettings.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -34,13 +36,13 @@ function ViewFavoritedRestaurants() {
 
 
   function handleBackArrow(e){
-    window.location.href = '/friends-and-family-reviews/'
+    window.location.href = getBase()
   }
   
 
   return (
     <div className="FavoriteRestaurants">
-       <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>Favorite Restaurants</h1>
+       <img src={back} alt="back arrow" className='back' onClick={handleBackArrow}/><h1 className='name'>Favorite Restaurants</h1>
         <div className='restaurants'>
         {favoriteRestaurants.map((restaurant) => (
          console.log(restaurant),

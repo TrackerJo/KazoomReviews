@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { editReview } from '../firebase.js'
 import './addReview.css'
+import x from '../assets/x_circle_fill.png'
 
 function EditReview({ isShown, setIsShown, restaurant, updateReviews, oldReview, reviewsSeen}) {
     
@@ -28,15 +29,15 @@ function EditReview({ isShown, setIsShown, restaurant, updateReviews, oldReview,
 
     return (
     <div className="Prompt" id={isShown}>
-       <img src="./assets/x_circle_fill.png" alt="exit prompt" className='exit' onClick={handleExit}/> 
+       <img src={x} alt="exit prompt" className='exit' onClick={handleExit}/> 
        <h1>Edit Review</h1>
         <label>Rating</label>
         <br />
-        <input type="number" min="1" max="5" onChange={handleRatingChange} value={review.Rating}/>
+        <input type="number" min="1" max="5" onChange={handleRatingChange} defaultValue={review.Rating}/> <label> out of 5</label>
         <br />
         <label>Review</label>
         <br />
-        <textarea rows="4" cols="30" onChange={handleReviewChange} value={review.Description}/>
+        <textarea rows="4" cols="30" onChange={handleReviewChange} defaultValue={review.Description}/>
         <br />
 
         <button onClick={handleSubmitReview}>Submit</button>

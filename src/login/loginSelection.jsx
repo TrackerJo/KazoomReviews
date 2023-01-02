@@ -5,6 +5,7 @@ import './login.css'
 import '../index.css'
 import SignUp from './signUp'
 import SignIn from './signIn'
+import { getBase } from '../webSettings.js'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,7 +21,7 @@ function LoginSelection() {
   const [loginSelection, setSelection] = useState('None')
 
   function onLogin(){
-    window.location.href = "/friends-and-family-reviews/"
+    window.location.href = getBase()
   }
 
   return (

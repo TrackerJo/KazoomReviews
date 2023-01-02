@@ -1,0 +1,20 @@
+.restaurantLabel{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.Loc{
+    float: right;
+    cursor: pointer;
+}
+
+.rName{
+    cursor: pointer;
+}
+
+.labelSpacer{
+    cursor: pointer;
+}

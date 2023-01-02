@@ -6,7 +6,13 @@ import './viewRestaurant.css'
 import '../index.css'
 import Review from './Review'
 import Reviews from './Reviews'
+import EditRestaurant from './editRestaurant'
+import back from '../assets/white_back_arrow.png'
+import favFill from '../assets/white_star_fill.png'
+import favEmpty from '../assets/white_star_empty.png'
+import pencil from '../assets/pencil.png'
 
+import { getBase } from '../webSettings.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,14 +30,22 @@ function ViewRestaurant() {
   const [visibility, setVisibility] = useState('hidden')
   const [reviewsSeen, setReviewsSeen] = useState('everyone')
   const [isFavorited, setIsFavorited] = useState(false)
-  const [favoritedImg, setFavoritedImg] = useState('/assets/white_star_empty.png')
+  const [favoritedImg, setFavoritedImg] = useState(favEmpty)
+  const [webLength, setWebLength] = useState(0)
+  const [photoLenngth, setPhotoLength] = useState(0)
+  const [editRestaurantVisible, setEditRestaurantVisible] = useState('hidden')
    //get restaurant name from url parameter
    const urlParams = new URLSearchParams(window.location.search)
    const restaurantName = urlParams.get('restaurant')
   useEffect(() => {
-   
+  
     getRestaurant(restaurantName).then((restaurant) => {
       setRestaurant(restaurant)
+      console.log('WEB LENGTH', [...restaurant.Website].length)
+      console.log("WEB TYPE", typeof restaurant.Website)
+       console.log("WEB", restaurant.Website)
+      setWebLength([...restaurant.Website].length)
+      setPhotoLength([...restaurant.Photo].length)
       getReviews(restaurantName, reviewsSeen, restaurant.Category).then((reviews) => {
         setReviews(reviews)
         console.log(reviews)
@@ -43,7 +57,7 @@ function ViewRestaurant() {
       checkIfRestaurantIsFavorited(restaurantName).then((favorite) => {
         if(favorite){
           setIsFavorited(true)
-          setFavoritedImg('/assets/white_star_fill.png')
+          setFavoritedImg(favFill)
         }
       })
     })
@@ -55,6 +69,10 @@ function ViewRestaurant() {
 
     
   }, [])
+
+  function updateRestaurant(newRestaurant){
+    setRestaurant(newRestaurant)
+  }
 
   async function updateReviews(rSeen){
     console.log('updating reviews')
@@ -98,33 +116,41 @@ function ViewRestaurant() {
   }
 
   function handleBackArrow(e){
-    window.location.href = '/friends-and-family-reviews/'
+    window.location.href = getBase()
   }
   
   async function handleFavoriteRestaurant(e){
     if(isFavorited){
       setIsFavorited(false)
-      setFavoritedImg('/assets/white_star_empty.png')
+      setFavoritedImg(favEmpty)
       await removeRestaurantFromFavorites(restaurantName)
     }else{
       setIsFavorited(true)
-      setFavoritedImg('/assets/white_star_fill.png')
+      setFavoritedImg(favFill)
       await addRestaurantToFavorites(restaurantName)
     }
   }
 
+  function handleEditRestaurant(e){
+    setEditRestaurantVisible('visible')
+  }
+
   return (
+    <>
     <div className="Restaurant">
       <div className='Info'>
         <br />
-        <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/><label className='name'>{restaurant.Name}</label><img src={favoritedImg} alt="favorite restaurant" id="favorite" onClick={handleFavoriteRestaurant}/> <label className='price'>{"$".repeat(restaurant.Price)}</label>
-    
+        <img src={back} alt="back arrow" className='back' onClick={handleBackArrow}/><label className='name'>{restaurant.Name}</label><img src={pencil} alt="edit restaurant"id='edit' onClick={handleEditRestaurant}/><img src={favoritedImg} alt="favorite restaurant" id="favorite" onClick={handleFavoriteRestaurant}/> <label className='price'>{"$".repeat(restaurant.Price)}</label>
+        
         <table className='photoLoc'>
           <tr>
             <th>
-              <p>{restaurant.Description}</p>
-              <a href={restaurant.Website}>{restaurant.Name}'s Website</a>
               <br />
+              <p>{restaurant.Description}</p>
+              {webLength > 0 ?
+              <><a href={restaurant.Website}>{restaurant.Name}'s Website </a><br /></>
+              : <></>}
+              
               <label>{restaurant.Address}</label>
               <br />
               <label>{restaurant.City}</label>
@@ -133,7 +159,10 @@ function ViewRestaurant() {
             </th>
 
             <th>
+            {photoLenngth > 0 ?
               <img src={restaurant.Photo} className='photo'></img>
+              : <></>}
+              
             </th>
           </tr>
         </table>
@@ -150,6 +179,8 @@ function ViewRestaurant() {
         <Reviews reviews={reviews} restaurant={restaurantName} updateReviews={updateReviews} reviewsSeen={reviewsSeen} setReviewsSeen={setReviewsSeen}/>
       </div>
     </div>
+    <EditRestaurant restaurant={restaurant} updateRestaurant={updateRestaurant} isShown={editRestaurantVisible} setIsShown={setEditRestaurantVisible} restaurantID={restaurantName}/>
+    </>
   )
 }
 

@@ -1,8 +1,8 @@
 .ManageProfile {
     padding: 20px;
     border-radius: 5px;
-    width: 500px;
-    height: 400px;
+    width: 40%;
+    height: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,7 +26,7 @@ p {
 
 .Settings{
     overflow: auto;
-    height: 360px;
+    height: 90%;
 }
 
 h1 {
@@ -120,4 +120,19 @@ h1 {
 
 select{
   float: right;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  h1 {
+    font-size: 30px;
+  }
+  .ManageProfile {
+    width: 80%;
+
+  }
+ 
+
+  
+  
 }

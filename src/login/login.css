@@ -2,8 +2,8 @@
     
     padding: 20px;
     border-radius: 5px;
-    width: 400px;
-    height: 350px;
+    width: 30%;
+    height: 45%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,5 +28,15 @@ h1{
         gap: 10px;
   }
 
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+      font-size: 30px;
+    }
+    .Login {
+      width: 80%;
+      height: 350px;
+    }
+  }
 
 

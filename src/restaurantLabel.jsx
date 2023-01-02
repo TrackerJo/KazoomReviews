@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { signIn } from './firebase.js'
 import './restaurantLabel.css'
+import { getBase } from "/webSettings.js";
 
 function RestaurantLabel({restaurant}) {
  
 
     function handleClick(e){
-        window.location.href = "/friends-and-family-reviews/viewRestaurant/?restaurant=" + restaurant.id
+        window.location.href = getBase() + "viewRestaurant/?restaurant=" + restaurant.id
     }
   
   return (

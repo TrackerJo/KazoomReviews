@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './sentRequestLabel.css'
 import { removeSentFriendRequest } from '../firebase'
+import x from '../assets/x_circle_white.png'
 
 
 function SentRequestLabel({request, updateSentRequests}) {
@@ -13,7 +14,7 @@ function SentRequestLabel({request, updateSentRequests}) {
   return (
     <div className="SentRequestLabel">
       <label>{request.Name}</label>
-      <img src="./assets/x_circle_white.png" alt="remove request" className='remove' onClick={handleRemoveRequest}/>
+      <img src={x} alt="remove request" className='remove' onClick={handleRemoveRequest}/>
     </div>
   )
 }

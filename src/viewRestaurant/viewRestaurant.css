@@ -1,6 +1,6 @@
 
 #root {
-    max-width: 1280px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -12,7 +12,9 @@
   align-items: center;
   margin-top: 20px;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
+  
 
 }
 
@@ -69,6 +71,14 @@ h1 {
     cursor: pointer;
 }
 
+#edit{
+    float: right;
+    width: 25px;
+    margin-top: -5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .back{
     font-size: 20px;
     color: white;
@@ -93,7 +103,8 @@ h1 {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
-  
+    max-height: 50px;
+    overflow: auto;
 
 }
 
@@ -101,6 +112,17 @@ th {
     font-size: 15px;
     font-weight: 200;
     line-height: normal;
+    height: 100px;
+    overflow: auto;
+}
+
+p {
+    font-size: 10px;
+    font-weight: 200;
+    line-height: normal;
+    max-height: 50px;
+    overflow: auto;
+    
 }
 
 .locInfo{
@@ -112,7 +134,6 @@ th {
 .Reviews{
     width: 450px;
     height: 450px;
-    background-color: gray;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -155,4 +176,42 @@ th {
         height: 0px;
        
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .name {
+      font-size: 30px;
+    }
+    .Info{
+        width: 350px;
+        height: 350px;
+    }
+    .photoLoc{
+        width: 300px;
+    }
+    .Reviews{
+        width: 350px;
+        height: 350px;
+    }
+    .photo{
+        width: 100px;
+        height: 100px;
+    }
+    p{
+        font-size: 8px;
+    }
+    th label{
+       
+        font-size: 15px;
+        
+    }
+    th{
+        text-align: center;
+       
+    }
+
+   
+
+    
   }

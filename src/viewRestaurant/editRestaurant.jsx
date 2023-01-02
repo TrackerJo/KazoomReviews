@@ -1,79 +1,104 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { useState } from 'react'
-import { addRestaurant } from '../firebase.js'
-import './addRestaurant.css'
-import '../index.css'
-import backArrow from '../assets/white_back_arrow.png'
-import { getBase } from '../webSettings.js'
-import QuickAddRestaurant from './quickAddRestaurant'
+import { useState, useEffect } from 'react'
+import { editRestaurant } from '../firebase.js'
+import './editRestaurant.css'
+import x from '../assets/x_circle_fill.png'
 
+function EditRestaurant({ isShown, setIsShown, restaurant, updateRestaurant,restaurantID}) {
+    
+    const [oldRestaurant, setOldRestaurant] = useState(restaurant)
+    const [description, setDescription] = useState(restaurant.Description)
+    const [address, setAddress] = useState(restaurant.Address)
+    const [city, setCity] = useState(restaurant.City)
+    const [state, setState] = useState(restaurant.State)
+    const [price, setPrice] = useState(restaurant.Price)
+    const [image, setImage] = useState(restaurant.Photo)
+    const [category, setCategory] = useState(restaurant.Category)
+    const [website, setWebsite] = useState(restaurant.Website)
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AddRestaurant />
-  </React.StrictMode>,
-)
+    useEffect(() => {
+        setDescription(restaurant.Description)
+        setAddress(restaurant.Address)
+        setCity(restaurant.City)
+        setState(restaurant.State)
+        setPrice(restaurant.Price)
+        setImage(restaurant.Photo)
+        setCategory(restaurant.Category)
+        setWebsite(restaurant.Website)
+    }
+    , [restaurant])
+    
 
+    function handleExit(e){
+        setIsShown('hidden')
+    }
 
+    function handleDescriptionChange(e){
+        setDescription(e.target.value)
+    }
 
-function AddRestaurant() {
-  const [quickAddVisible, setQuickAddVisibile] = useState('hidden')
-  
-  async function handleAddRestaurant(e){
-    const name = document.getElementById('name').value
-    const description = document.getElementById('description').value
-    const address = document.getElementById('address').value
-    const city = document.getElementById('city').value
-    const state = document.getElementById('state').value
-    const website = document.getElementById('website').value
-    const category = document.getElementById('category').value
-    const price = document.getElementById('price').value
-    const photo = document.getElementById('photo').value
+    function handleAddressChange(e){
+        setAddress(e.target.value)
+    }
 
+    function handleCityChange(e){
+        setCity(e.target.value)
+    }
 
-    let id = await addRestaurant(name, description,address, city, state, website, category, price, photo)
+    function handleStateChange(e){
+        setState(e.target.value)
+    }
 
-    //Redirect to home page
-    window.location.href = getBase() + "viewRestaurant/?restaurant=" + id
-  
-  }
+    function handlePriceChange(e){
+        setPrice(e.target.value)
+    }
 
-  function handleBackArrow(e){
-    window.location.href = getBase()
-  }
+    function handlePhotoChange(e){
+        setImage(e.target.value)
+    }
 
-  function updateFields(newRestaurant){
-    document.getElementById('name').value = newRestaurant.name
-    document.getElementById('address').value = newRestaurant.address
-    document.getElementById('city').value = newRestaurant.city
-    document.getElementById('state').value = newRestaurant.state
-    document.getElementById('price').value = newRestaurant.price
-    document.getElementById('photo').value = newRestaurant.photo
-  }
+    function handleCategoryChange(e){
+        setCategory(e.target.value)
+    }
 
-  return (
-    <>
-      <div className="AddRestaurant">
-        <img src={backArrow} alt="back arrow" className='back' onClick={handleBackArrow}/>
-        <h1>Add Restaurant</h1>
-        <button onClick={() => {setQuickAddVisibile('visible')}}>Quick Fill</button>
-        
-        <div className='Fields'>
-            <label htmlFor="name">Restaurant Name: </label>
-            <input type="text" id='name'/>
-            <br />
-            <label htmlFor="description">Restaurant Description: </label>
-            <textarea name="description" id="description" cols="30" rows="5"></textarea>
-            <br />
-          <label htmlFor="address">Address: </label>
-          <input type="text" id='address'/>
-          <br />
-          <label htmlFor="city">City: </label>
-          <input type="text" id='city'/>
-      
-          <label htmlFor="state">State: </label>
-          <select id='state'>
+    function handleWebsiteChange(e){
+        setWebsite(e.target.value)
+    }
+
+    async function handleEditRestaurant(e){
+        let newRestaurant = {
+            Description: description,
+            Address: address,
+            City: city,
+            State: state,
+            Price: price,
+            Photo: image,
+            Category: category,
+            Website: website,
+            Owner: restaurant.Owner,
+            Name: restaurant.Name
+        }
+      await  editRestaurant(newRestaurant, restaurantID)
+        updateRestaurant(newRestaurant)
+        setIsShown('hidden')
+    }
+    
+
+    return (
+    <div className="Prompt" id={isShown}>
+       <img src={x} alt="exit prompt" className='exit' onClick={handleExit}/> 
+       <h1>Edit Restaurant</h1>
+        <label>Description</label>
+        <textarea rows="4" cols="30" onChange={handleDescriptionChange} value={description}/> 
+        <br />
+        <label>Address: </label>
+       
+        <input onChange={handleAddressChange} defaultValue={address}/>
+        <br />
+        <label>City: </label>
+        <input onChange={handleCityChange} defaultValue={city}/>
+        <br />
+        <label htmlFor="state">State: </label>
+          <select id='state' onChange={handleStateChange} defaultValue={state}>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -127,8 +152,8 @@ function AddRestaurant() {
               <option value="WY">Wyoming</option>
           </select>
           <br />
-          <label htmlFor="category">Restaraunt Category:</label>
-          <select id='category'>
+          <label htmlFor="category">Category: </label>
+          <select id='category' onChange={handleCategoryChange} defaultValue={category}>
               <option value="American">American</option>
               <option value="Asian">Asian</option>
               <option value="Barbecue">Barbecue</option>
@@ -151,32 +176,24 @@ function AddRestaurant() {
               <option value="Vietnamese">Vietnamese</option>
           </select>
           <br />
-          <label htmlFor="price">Price:</label>
-          <select id='price'>
+        <label>Photo URL: </label>
+        <input onChange={handlePhotoChange} defaultValue={image}/>
+        <br />
+        <label>Website URL:</label>
+        <input onChange={handleWebsiteChange} defaultValue={website}/>
+        <br />
+        <label>Price:</label>
+        <select id='price' onChange={handlePriceChange} defaultValue={price}>
               <option value="1">$</option>
               <option value="2">$$</option>
               <option value="3">$$$</option>
               <option value="4">$$$$</option>
           </select>
-          <br />
-          <label htmlFor="website">Website: </label>
-          <input type="text" id='website'/>
-          <br />
-          <label htmlFor="photo">Restaurant Photo URL: </label>
-          <input type="text" id='photo'/>
-          <br />
-          <br />
-          <button id='addRestaraunt' onClick={handleAddRestaurant}>Add Restaraunt</button>
+        <br />
+        <button onClick={handleEditRestaurant}>Submit</button>
 
-
-          
-
-        </div>
-        
-      </div>
-      <QuickAddRestaurant isShown={quickAddVisible} setIsShown={setQuickAddVisibile} updateFields={updateFields}/>
-    </>
-  )
+    </div>
+    )
 }
 
-export default AddRestaurant
+export default EditRestaurant

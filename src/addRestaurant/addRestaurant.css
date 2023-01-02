@@ -9,7 +9,7 @@
     
     padding: 20px;
     border-radius: 5px;
-    width: 400px;
+    width: 30%;
     height: auto;
     position: absolute;
     top: 50%;
@@ -24,4 +24,14 @@ h1 {
     color: white;
     margin-top: 0px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+      font-size: 30px;
+    }
+    .AddRestaurant {
+      width: 80%;
+    }
+  }
 

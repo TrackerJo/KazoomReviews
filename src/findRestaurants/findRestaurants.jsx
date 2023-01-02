@@ -6,6 +6,8 @@ import './findRestaurants.css'
 import '../index.css'
 import SearchBar from './searchBar'
 import RestaurantLabel from '../restaurantLabel'
+import back from '../assets/white_back_arrow.png'
+import { getBase } from '../webSettings.js'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -57,12 +59,13 @@ function FindRestaurants() {
   }
 
   function handleBackArrow(e){
-    window.location.href = '/friends-and-family-reviews/'
+    window.location.href = getBase()
   }
 
   return (
     <>
     <div className="FindRestaurants">
+    <img src={back} alt="back arrow" className='back' onClick={handleBackArrow}/>
        <h1>Search for Restaurants</h1>
       <label htmlFor="searchBy">Search By: </label>
       <select id='searchBy' onChange={handleSearchByChange}>
@@ -72,6 +75,7 @@ function FindRestaurants() {
         <option value="category">Category</option>
         <option value="price">Price</option>
       </select>
+      <br />
       <SearchBar searchType={searchType} /> 
       <button onClick={handleSearch}>Search</button>
      

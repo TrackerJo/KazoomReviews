@@ -6,6 +6,8 @@ import './friendLink.css'
 import '../index.css'
 import SignIn from '../login/signIn'
 import SignUp from '../login/signUp'
+import checkmark from '../assets/checkmark_circle_white.png'
+import x from '../assets/x_circle_white.png'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -63,8 +65,8 @@ function FriendLink() {
       <label>Would you like to accept this friend request?</label>
         <br />
         <br />
-        <img src="./assets/checkmark_circle_white.png" alt="accept" className='accept' onClick={handleAccept}/>
-        <img src="./assets/x_circle_white.png" alt="reject" className='reject' onClick={handleReject}/>
+        <img src={checkmark} alt="accept" className='accept' onClick={handleAccept}/>
+        <img src={x} alt="reject" className='reject' onClick={handleReject}/>
     </div>
     :
     loggedIn == 0 ?

@@ -5,7 +5,8 @@ import { getCurrentUserProfile, updateProfileInfo, reauthenticateUser, changePas
 import './manageProfile.css'
 import '../index.css'
 import SignIn from '../login/signIn'
-
+import back from '../assets/white_back_arrow.png'
+import { getBase } from '../webSettings.js'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -55,7 +56,7 @@ function ManageProfile() {
   }, [])
 
   function handleBackArrow(e){
-    window.location.href = '/friends-and-family-reviews/'
+    window.location.href = getBase()
   }
 
  
@@ -185,7 +186,7 @@ function ManageProfile() {
       return (
         <>
           <div className="ManageProfile">
-            <img src="./assets/white_back_arrow.png" alt="back arrow" className='back' onClick={handleBackArrow}/>
+            <img src={back} alt="back arrow" className='back' onClick={handleBackArrow}/>
             <h1>Manage Profile</h1>
             <div className='Settings' onChange={changeValue}>
                 <button className="collapsible" onClick={openCollapsible}>Profile Settings</button>
