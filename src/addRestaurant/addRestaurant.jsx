@@ -21,6 +21,7 @@ function AddRestaurant() {
   const [quickAddVisible, setQuickAddVisibile] = useState('hidden')
   
   async function handleAddRestaurant(e){
+    console.log("add restaurant")
     const name = document.getElementById('name').value
     const description = document.getElementById('description').value
     const address = document.getElementById('address').value
