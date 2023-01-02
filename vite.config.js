@@ -5,12 +5,11 @@ import react from '@vitejs/plugin-react'
 const root = resolve(__dirname, 'src')
 const outDir = resolve(__dirname, 'dist')
 
-export const base = '/KazoomReviews/'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  base: '/KazoomReviews/',
+  base: '/',
   plugins: [react()],
   build: {
     outDir,
