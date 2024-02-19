@@ -1061,7 +1061,7 @@ export async function getYelpRestaurants(name, location){
         },
         
       };
-      let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${name}&sort_by=best_match&limit=20`;
+      let url = `https://api.yelp.com/v3/businesses/search?term=${name}&sort_by=best_match&limit=20`;
     if(location != null){
         url += `&location=${location}`;
     }
