@@ -1,3 +1,3 @@
 export function getBase(){
-    return '/'
+    return '/KazoomReviews/'
 } 

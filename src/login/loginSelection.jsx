@@ -26,7 +26,7 @@ function LoginSelection() {
 
   return (
     <div className="Login b1">
-      <h1>Friends&Family Reviews</h1>
+      <h1>Kazoom Reviews</h1>
       { loginSelection == 'None' ? 
       <div className='Selections'>
         <button onClick={() => {setSelection('Sign In')}}>Sign In</button>

@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Friends&Family Reviews</h1>
+      <h1>Kazoom Reviews</h1>
       <div className='Selection'>
         <button onClick={handleRedirectToAddRestaurant}>Add Restaurant</button>
         <button onClick={handleRedirectToFindRestaurants}>Find Restaurants</button>
